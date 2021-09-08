@@ -10,7 +10,13 @@ import { NotImplementedError } from '../extensions/index.js';
  * For the input 'prettyandsimple@example.com', the output should be 'example.com'
  *
  */
-export default function getEmailDomain(/* email */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+export default function getEmailDomain(email) {
+  let arr = email.split('');
+  let domain = '';
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] == '@') {
+      domain = arr.slice(i + 1, arr.length);
+    }
+  }
+  return domain.join('');
 }
